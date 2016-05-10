@@ -1,0 +1,18 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://code.alibabatech.com/schema/dubbo
+       http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <dubbo:application name="wym-dubbo-consumer"/>
+
+    <dubbo:registry  address="127.0.0.1:2181" protocol="zookeeper"/>
+
+    <dubbo:reference id="registerInterface" interface="com.wym.dubbo.service.RegisterInterface" ></dubbo:reference>
+
+    <dubbo:monitor protocol="registry" />
+
+    <dubbo:annotation package="com.wym.dubbo.test"/>
+</beans>
